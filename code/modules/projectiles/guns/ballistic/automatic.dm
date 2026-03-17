@@ -109,6 +109,7 @@
 		Light-weight and fully automatic. Uses 4.6x30mm rounds."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
+	worn_icon_state = "wt550"
 	inhand_icon_state = "wt550"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	fire_delay = 2
