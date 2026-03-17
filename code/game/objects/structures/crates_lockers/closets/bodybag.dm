@@ -14,6 +14,8 @@
 	delivery_icon = null //unwrappable
 	anchorable = FALSE
 	cutting_tool = null // Bodybags are not deconstructed by cutting
+	can_weld_shut = FALSE
+	can_install_electronics = FALSE
 	drag_slowdown = 0
 	has_closed_overlay = FALSE
 	can_install_electronics = FALSE
@@ -66,6 +68,7 @@
 
 ///Handles renaming of the bodybag's examine tag.
 /obj/structure/closet/body_bag/proc/handle_tag(tag_name)
+	playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 	name = tag_name ? "[initial(name)] - [tag_name]" : initial(name)
 	tagged = !!tag_name
 	update_appearance()
