@@ -155,7 +155,7 @@
 	category = TAB_ASSEMBLY_PARTS
 	machinery_type = MACHINING_WORKSTATION
 	crafting_time = MACHINING_DELAY_SLOW
-	result = /obj/item/gun/energy/laser
+	result = /obj/item/gun/energy/laser/security
 	reqs = list(
 		/obj/item/machining_intermediates/lasercavity = 2,
 		/obj/item/machining_intermediates/lens = 1,

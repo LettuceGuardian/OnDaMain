@@ -33,7 +33,7 @@
 /obj/effect/spawner/random/armory/laser_gun
 	name = "laser gun spawner"
 	icon_state = "laser_gun"
-	loot = list(/obj/item/gun/energy/laser)
+	loot = list(/obj/item/gun/energy/laser/security)
 
 /obj/effect/spawner/random/armory/e_gun
 	name = "energy gun spawner"
@@ -124,8 +124,8 @@
 
 /obj/effect/spawner/armory_spawn/centcom_lasers
 	guns = list(
-		/obj/item/gun/energy/laser,
-		/obj/item/gun/energy/laser,
+		/obj/item/gun/energy/laser/security,
+		/obj/item/gun/energy/laser/security,
 		/obj/item/gun/energy/e_gun,
 	)
 

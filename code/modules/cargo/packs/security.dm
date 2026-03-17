@@ -57,7 +57,7 @@
 	desc = "Contains three lethal, high-energy laser guns."
 	cost = CARGO_CRATE_VALUE * 4
 	access_view = ACCESS_ARMORY
-	contains = list(/obj/item/gun/energy/laser = 3)
+	contains = list(/obj/item/gun/energy/laser/security = 3)
 	crate_name = "laser crate"
 
 /datum/supply_pack/security/securitybarriers

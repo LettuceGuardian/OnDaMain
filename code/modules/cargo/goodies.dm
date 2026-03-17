@@ -91,7 +91,7 @@
 	desc = "Contains one laser gun, the lethal workhorse of Nanotrasen security everywehere."
 	cost = PAYCHECK_COMMAND * 6
 	access_view = ACCESS_WEAPONS
-	contains = list(/obj/item/gun/energy/laser)
+	contains = list(/obj/item/gun/energy/laser/security)
 
 /datum/supply_pack/goody/hell_single
 	name = "Hellgun Kit Single-Pack"

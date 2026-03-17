@@ -123,7 +123,7 @@
 /area/deathmatch/fullbright)
 "aN" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser/security,
 /turf/open/floor/engine,
 /area/deathmatch/fullbright)
 "aP" = (

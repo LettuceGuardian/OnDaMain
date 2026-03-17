@@ -35322,12 +35322,12 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/red/fourcorners,
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security,
+/obj/item/gun/energy/laser/security{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -52477,7 +52477,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 9
 	},
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser/security,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/security/warden)
 "qfE" = (

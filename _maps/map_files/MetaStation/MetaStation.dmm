@@ -9335,7 +9335,7 @@
 /area/station/hallway/primary/central)
 "dsk" = (
 /obj/structure/closet/secure_closet/warden,
-/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser/security,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 8
 	},
@@ -53964,12 +53964,12 @@
 /area/station/hallway/primary/starboard)
 "sDw" = (
 /obj/structure/rack,
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security,
+/obj/item/gun/energy/laser/security{
 	pixel_x = 3;
 	pixel_y = -3
 	},

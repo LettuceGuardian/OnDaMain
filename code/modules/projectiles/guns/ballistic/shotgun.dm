@@ -387,6 +387,8 @@
 	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "dshotgun"
 	worn_icon_state  = "dshotgun"
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	inhand_icon_state = "dshotgun"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM

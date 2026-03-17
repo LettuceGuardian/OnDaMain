@@ -250,7 +250,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	shoes = /obj/item/clothing/shoes/magboots
 	suit = /obj/item/clothing/suit/space/ert/security
-	suit_store = /obj/item/gun/energy/laser
+	suit_store = /obj/item/gun/energy/laser/security
 	back = /obj/item/storage/backpack/ert/security
 	backpack_contents = list(
 		/obj/item/knife/combat = 1,

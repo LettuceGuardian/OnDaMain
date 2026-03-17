@@ -161,6 +161,8 @@
 
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "wespe"
+	worn_icon_state = "trappiste_generic"
+	inhand_icon_state = "trappiste_generic"
 
 	fire_sound = 'monkestation/code/modules/blueshift/sounds/pistol_light.ogg'
 
@@ -222,10 +224,10 @@
 	name = "\improper Skild Pistol"
 	desc = "A somewhat rare to see Trappiste pistol firing the high caliber .585 developed by the same company. \
 		Sees rare use mainly due to its tendency to cause severe wrist discomfort."
-
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "skild"
-
+	worn_icon_state = "trappiste_generic"
+	inhand_icon_state = "trappiste_generic"
 	fire_sound = 'monkestation/code/modules/blueshift/sounds/pistol_heavy.ogg'
 	suppressed_sound = 'monkestation/code/modules/blueshift/sounds/suppressed_heavy.ogg'
 

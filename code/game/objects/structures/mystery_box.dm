@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(mystery_box_guns, list(
 	/obj/item/gun/energy/e_gun/advtaser,
 	/obj/item/gun/energy/e_gun/nuclear,
 	/obj/item/gun/energy/e_gun/turret,
-	/obj/item/gun/energy/laser,
+	/obj/item/gun/energy/laser/security,
 	/obj/item/gun/energy/laser/hellgun,
 	/obj/item/gun/energy/laser/captain,
 	/obj/item/gun/energy/laser/scatter,

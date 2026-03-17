@@ -317,6 +317,8 @@
 	desc = "A small revolver with a comically short barrel and cylinder space for eight .35 Sol Short rounds."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "eland"
+	worn_icon_state = "trappiste_generic"
+	inhand_icon_state = "trappiste_generic"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c35sol
 	suppressor_x_offset = 3
 	w_class = WEIGHT_CLASS_SMALL
@@ -353,7 +355,7 @@
 	desc = "A hefty revolver with an equally large cylinder capable of holding five .585 Trappiste rounds."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "takbok"
-	worn_icon_state = "takbok"
+	worn_icon_state = "trappiste_generic"
 	inhand_icon_state = "takbok"
 	fire_sound = 'monkestation/code/modules/blueshift/sounds/revolver_heavy.ogg'
 	suppressed_sound = 'monkestation/code/modules/blueshift/sounds/suppressed_heavy.ogg'
@@ -389,8 +391,8 @@
 // Blueshields custom takbok revolver.
 /obj/item/gun/ballistic/revolver/takbok/blueshield
 	name = "unmarked takbok revolver" //Give it a unique prefix compared hellfire's 'modified' to stand out
+	desc = "A modified revolver resembling that of Trappiste's signature Takbok, notably lacking any of the company's original markings or traceable identifaction. The custom modifactions allows it to shoot the five .585 Trappiste rounds in its cylinder quicker and with more consistancy."
 	icon_state = "takbok_blueshield"
-	desc = "A modified revolver resembling that of Trappiste's signature Takbok, notably lacking any of the company's orginal markings or traceable identifaction. The custom modifactions allows it to shoot the five .585 Trappiste rounds in its cylinder quicker and with more consistancy."
 	worn_icon_state = "takbok_blueshield"
 	inhand_icon_state = "takbok_blueshield"
 

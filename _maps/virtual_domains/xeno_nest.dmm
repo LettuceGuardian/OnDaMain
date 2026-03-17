@@ -134,11 +134,11 @@
 "F" = (
 /obj/structure/table/greyscale,
 /obj/item/gun/energy/beam_rifle,
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security{
 	pixel_x = 4;
 	pixel_y = -6
 	},
-/obj/item/gun/energy/laser{
+/obj/item/gun/energy/laser/security{
 	pixel_x = -8;
 	pixel_y = 6
 	},
