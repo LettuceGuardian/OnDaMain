@@ -1,13 +1,21 @@
 /obj/item/gun/energy/laser
-	name = "\improper Allstar SC-1 laser carbine"
-	desc = "A basic energy-based laser carbine that fires concentrated beams of light which pass through glass and thin metal."
+	name = "Laser Gun"
+	desc = "A basic energy-based laser carbine that you shouldn't be seeing. DIAL 999-CODER"
 	icon_state = "laser"
-	inhand_icon_state = "laser"
+	worn_icon_state = "gun_1"
+	inhand_icon_state = "oldlaser"
 	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron=SHEET_MATERIAL_AMOUNT)
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun)
 	ammo_x_offset = 1
 	shaded_charge = 1
+
+/obj/item/gun/energy/laser/security
+	name = "\improper Allstar SC-1 laser carbine"
+	desc = "A basic energy-based laser carbine that fires concentrated beams of light which pass through glass and thin metal."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
+	worn_icon_state = "laser"
+	inhand_icon_state = "laser"
 
 /obj/item/gun/energy/laser/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ALLSTAR)

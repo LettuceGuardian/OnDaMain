@@ -60,6 +60,7 @@
 		of underpaid Nanotrasen interns without a care for company property, Russian military LARPers, \
 		actual drunk Space Russians, Tiger Co-op assassins and cargo technicians. <I>Still</I> feels slightly moist."
 	weapon_weight = WEAPON_HEAVY
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "moistnugget"
 	inhand_icon_state = "moistnugget"
 	slot_flags = ITEM_SLOT_BACK
@@ -145,6 +146,7 @@
 /obj/item/gun/ballistic/rifle/boltaction/prime
 	name = "\improper Regal Nagant"
 	desc = "A prized hunting Mosin Nagant. Used for the most dangerous game."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "moistprime"
 	inhand_icon_state = "moistprime"
 	worn_icon_state = "moistprime"
@@ -205,6 +207,7 @@
 /obj/item/gun/ballistic/rifle/enchanted
 	name = "enchanted bolt action rifle"
 	desc = "Careful not to lose your head."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	var/guns_left = 30
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/enchanted
 	can_be_sawn_off = FALSE
@@ -260,6 +263,7 @@
 	desc = "A boltaction anti-materiel rifle, utilizing .50 BMG cartridges. While technically outdated in modern arms markets, it still works exceptionally well as \
 		an anti-personnel rifle. In particular, the employment of modern armored MODsuits utilizing advanced armor plating has given this weapon a new home on the battlefield. \
 		It is also able to be suppressed....somehow."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "sniper"
 	weapon_weight = WEAPON_HEAVY
 	inhand_icon_state = "sniper"

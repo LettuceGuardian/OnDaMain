@@ -288,6 +288,7 @@
 /obj/item/gun/ballistic/ignifist
 	name = "\improper Ignifist 30"
 	desc = "A small one shot use anti tank rocketlauncher, extremely basic in design, it will only tickle soft targets."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "ignifist"
 	inhand_icon_state = "ignifist"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/ignifist

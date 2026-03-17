@@ -48,13 +48,20 @@
 /obj/item/gun/ballistic/shotgun/riot //for spawn in the armory
 	name = "riot shotgun"
 	desc = "A sturdy shotgun with a longer magazine and a fixed tactical stock designed for non-lethal riot control."
-	icon_state = "riotshotgun"
-	inhand_icon_state = "shotgun"
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
+	icon_state = "riot"
+	worn_icon_state = "riot"
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_icon_state = "riot"
 	fire_delay = 8
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot
 	sawn_desc = "Come with me if you want to live."
 	can_be_sawn_off = TRUE
 	pbk_gentle = TRUE
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	SET_BASE_PIXEL(-8, 0)
 
 /obj/item/gun/ballistic/shotgun/riot/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
@@ -140,12 +147,18 @@
 /obj/item/gun/ballistic/shotgun/automatic/combat
 	name = "combat shotgun"
 	desc = "A semi automatic shotgun with tactical furniture and a six-shell capacity underneath."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "cshotgun"
-	inhand_icon_state = "shotgun_combat"
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_icon_state = "cshotgun"
 	fire_delay = 8
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/com
 	w_class = WEIGHT_CLASS_HUGE
 	pbk_gentle = TRUE
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	SET_BASE_PIXEL(-8, 0)
 
 /obj/item/gun/ballistic/shotgun/automatic/combat/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
@@ -154,6 +167,7 @@
 	name = "compact shotgun"
 	desc = "A compact version of the semi automatic combat shotgun. For close encounters."
 	icon_state = "cshotgunc"
+	inhand_icon_state = "cshotgunc"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/com/compact
 	w_class = WEIGHT_CLASS_BULKY
@@ -370,8 +384,10 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "dshotgun"
-	inhand_icon_state = "shotgun_db"
+	worn_icon_state  = "dshotgun"
+	inhand_icon_state = "dshotgun"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
@@ -393,6 +409,9 @@
 	can_be_sawn_off = TRUE
 	pb_knockback = 3 // it's a super shotgun!
 	pbk_gentle = FALSE
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	SET_BASE_PIXEL(-8, 0)
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/click_alt(mob/living/user)
 	if(!unique_reskin || current_skin)
@@ -420,6 +439,7 @@
 /obj/item/gun/ballistic/shotgun/hook
 	name = "hook modified sawn-off shotgun"
 	desc = "Range isn't an issue when you can bring your victim to you."
+	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "hookshotgun"
 	worn_icon_state = "gun"
 	inhand_icon_state = "hookshotgun"

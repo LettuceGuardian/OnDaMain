@@ -72,7 +72,9 @@
 /obj/item/gun/ballistic/automatic/c20r
 	name = "\improper C-20r SMG"
 	desc = "A bullpup three-round burst .45 SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "c20r"
+	worn_icon_state = "c20r"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
@@ -107,7 +109,7 @@
 		Light-weight and fully automatic. Uses 4.6x30mm rounds."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
-	inhand_icon_state = "arg"
+	inhand_icon_state = "wt550"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wt550m9
 	fire_delay = 2
 	can_suppress = FALSE
@@ -309,10 +311,9 @@
 	name = "\improper Bogseo Heavy Submachine Gun"
 	desc = "A weapon that could hardly be called a 'sub' machinegun, firing the hefty .585 cartridge. \
 		It provides enough kick to bruise a shoulder pretty bad if used without protection."
-	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns32x.dmi'
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "bogseo"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_righthand.dmi'
+	worn_icon_state = "bogseo"
 	inhand_icon_state = "bogseo"
 	special_mags = FALSE
 	bolt_type = BOLT_TYPE_STANDARD
@@ -364,10 +365,10 @@
 	desc = "A short barrel, further compacted conversion of the 'Lanca' rifle to fire pistol caliber .27-54 cartridges. \
 		Due to the intended purpose of the weapon, and less than optimal ranged performance of the projectile, it has \
 		nothing more than basic glow-sights as opposed to the ranged scope Lanca users might be used to."
-	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "miecz"
-	inhand_icon_state = "c20r"
-	worn_icon_state = "gun"
+	inhand_icon_state = "miecz"
+	worn_icon_state = "miecz"
 	SET_BASE_PIXEL(-8, 0)
 	special_mags = FALSE
 	bolt_type = BOLT_TYPE_STANDARD
@@ -482,6 +483,7 @@
 	desc = "A three-round burst 5.56 toploading carbine, designated 'M-90gl'. Has an attached underbarrel grenade launcher." //monkestation edit: reverted back from .223 to original 556 as ported from nova
 	desc_controls = "Right-click to use grenade launcher."
 	icon_state = "m90"
+	worn_icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
 	selector_switch_icon = TRUE
@@ -715,6 +717,7 @@
 /obj/item/gun/ballistic/automatic/l6_saw
 	name = "\improper L6 SAW"
 	desc = "A heavily modified 7.12x82mm light machine gun, designated 'L6 SAW'. Has 'Aussec Armoury - 2531' engraved on the receiver below the designation."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "l6"
 	inhand_icon_state = "l6closedmag"
 	base_icon_state = "l6"
@@ -736,6 +739,7 @@
 	rack_sound = 'sound/weapons/gun/l6/l6_rack.ogg'
 	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
 	var/cover_open = FALSE
+	slot_flags = ITEM_SLOT_BACK
 
 /obj/item/gun/ballistic/automatic/l6_saw/unrestricted
 	pin = /obj/item/firing_pin

@@ -102,8 +102,8 @@
 /obj/item/shield/riot
 	name = "riot shield"
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
-	icon_state = "riot"
-	inhand_icon_state = "riot"
+	icon_state = "riots"
+	inhand_icon_state = "riots"
 	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT * 3.75, /datum/material/iron= HALF_SHEET_MATERIAL_AMOUNT)
 	transparent = TRUE
 	max_integrity = 75
