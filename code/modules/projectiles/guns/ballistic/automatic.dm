@@ -1009,6 +1009,8 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	icon_state = "wylom"
+	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/inhands_64_left.dmi'
+	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/inhands_64_right.dmi'
 	inhand_icon_state = "wylom"
 	worn_icon_state = "wylom"
 	w_class = WEIGHT_CLASS_HUGE
