@@ -756,28 +756,28 @@ GLOBAL_DATUM_INIT(human_heights_to_offsets, /alist, alist(
 #define GLASSES_LAYER 18
 /// Belt layer
 #define BELT_LAYER 17 //Possible make this an overlay of somethign required to wear a belt?
-/// Suit storage layer (tucking a gun or baton underneath your armor)
-#define SUIT_STORE_LAYER 16
 /// Neck layer (for wearing ties and bedsheets)
-#define NECK_LAYER 15
+#define NECK_LAYER 16
 /// Back layer (for backpacks and equipment on your back)
-#define BACK_LAYER 14
+#define BACK_LAYER 15
 /// Hair layer (mess with the fro and you got to go!)
-#define HAIR_LAYER 13 //TODO: make part of head layer?
+#define HAIR_LAYER 14 //TODO: make part of head layer?
 /// Facemask layer (gas masks, breath masks, etc.)
-#define FACEMASK_LAYER 12
+#define FACEMASK_LAYER 13
 /// Head layer (hats, helmets, etc.)
-#define HEAD_LAYER 11
+#define HEAD_LAYER 12
 /// Bandage layer (gauze and other medical overlays)
-#define BANDAGE_LAYER 10
+#define BANDAGE_LAYER 11
 /// Handcuff layer (when your hands are cuffed)
-#define HANDCUFF_LAYER 9
+#define HANDCUFF_LAYER 10
 /// Legcuff layer (when your feet are cuffed)
-#define LEGCUFF_LAYER 8
+#define LEGCUFF_LAYER 9
 /// Hands layer (for the actual hand, not the arm... I think?)
-#define HANDS_LAYER 7
+#define HANDS_LAYER 8
 /// Body front layer. Usually used for mutant bodyparts that need to be in front of stuff (e.g. cat ears)
-#define BODY_FRONT_LAYER 6
+#define BODY_FRONT_LAYER 7
+/// Suit storage layer (holstering a gun or baton on your armor)
+#define SUIT_STORE_LAYER 6
 /// Special body layer that actually require to be above the hair (e.g. lifted welding goggles)
 #define ABOVE_BODY_FRONT_GLASSES_LAYER 5
 /// Special body layer for the rare cases where something on the head needs to be above everything else (e.g. flowers)

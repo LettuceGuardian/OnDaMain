@@ -73,6 +73,7 @@
 	name = "\improper C-20r SMG"
 	desc = "A bullpup three-round burst .45 SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon_state = "c20r"
+	worn_icon_state = "c20r"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
@@ -311,8 +312,7 @@
 		It provides enough kick to bruise a shoulder pretty bad if used without protection."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns32x.dmi'
 	icon_state = "bogseo"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_righthand.dmi'
+	worn_icon_state = "bogseo"
 	inhand_icon_state = "bogseo"
 	special_mags = FALSE
 	bolt_type = BOLT_TYPE_STANDARD
@@ -366,8 +366,8 @@
 		nothing more than basic glow-sights as opposed to the ranged scope Lanca users might be used to."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "miecz"
-	inhand_icon_state = "c20r"
-	worn_icon_state = "gun"
+	worn_icon_state = "miecz"
+	inhand_icon_state = "miecz"
 	SET_BASE_PIXEL(-8, 0)
 	special_mags = FALSE
 	bolt_type = BOLT_TYPE_STANDARD
@@ -417,8 +417,7 @@
 	desc = "A small submachine gun firing .35 Sol. Commonly seen in the hands of PMCs and other unsavory corpos. Accepts any standard Sol pistol magazine."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
 	icon_state = "sindano"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+	worn_icon_state = "sindano"
 	inhand_icon_state = "sindano"
 	special_mags = TRUE
 	bolt_type = BOLT_TYPE_OPEN
@@ -461,6 +460,7 @@
 /obj/item/gun/ballistic/automatic/sol_smg/evil
 	desc = "A small submachinegun, this one is painted in tacticool black. Accepts any standard Sol pistol magazine."
 	icon_state = "sindano_evil"
+	worn_icon_state = "sindano_evil"
 	inhand_icon_state = "sindano_evil"
 	spread = 5
 	projectile_wound_bonus = 5
@@ -482,8 +482,9 @@
 	desc = "A three-round burst 5.56 toploading carbine, designated 'M-90gl'. Has an attached underbarrel grenade launcher." //monkestation edit: reverted back from .223 to original 556 as ported from nova
 	desc_controls = "Right-click to use grenade launcher."
 	icon_state = "m90"
-	w_class = WEIGHT_CLASS_BULKY
+	worn_icon_state = "m90"
 	inhand_icon_state = "m90"
+	w_class = WEIGHT_CLASS_BULKY
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m556 //monkestation edit: reverted back from .223 to original 556 as ported from nova
 	can_suppress = FALSE
@@ -634,10 +635,7 @@
 	desc = "A heavy battle rifle firing .40 Sol. Commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "infanterie"
-	worn_icon = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
 	worn_icon_state = "infanterie"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "infanterie"
 	SET_BASE_PIXEL(-8, 0)
 	special_mags = TRUE
@@ -800,10 +798,7 @@
 	desc = "A spotless, if outdated machinegun. The same model was used to great effect against xenomorph incursions in the past, hopefully this one doesn't have any manufacturing defects...."
 	icon = 'monkestation/icons/obj/weapons/guns/guns48x.dmi'
 	icon_state = "outomaties"
-	worn_icon = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
 	worn_icon_state = "outomaties"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "outomaties"
 	bolt_type = BOLT_TYPE_OPEN
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c65xeno_drum
@@ -950,10 +945,7 @@
 		a surprisingly functional amount of magnification, given its place of origin."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "lanca"
-	worn_icon = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
 	worn_icon_state = "lanca"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
 	inhand_icon_state = "lanca"
 	SET_BASE_PIXEL(-8, 0)
 	special_mags = FALSE
@@ -1014,11 +1006,8 @@
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/szot_dynamica/guns_64.dmi'
 	base_pixel_x = -16 // This baby is 64 pixels wide
 	pixel_x = -16
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/inhands_64_left.dmi'
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/inhands_64_right.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	worn_icon = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
 	icon_state = "wylom"
 	inhand_icon_state = "wylom"
 	worn_icon_state = "wylom"

@@ -120,10 +120,7 @@
 	desc = "A unique grenade launcher firing .980 grenades. A laser sight system allows its user to specify a range for the grenades it fires to detonate at."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "kiboko"
-	worn_icon = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
 	worn_icon_state = "kiboko"
-	lefthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'monkestation/code/modules/blueshift/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "kiboko"
 	SET_BASE_PIXEL(-8, 0)
 	special_mags = TRUE
@@ -288,7 +285,9 @@
 /obj/item/gun/ballistic/ignifist
 	name = "\improper Ignifist 30"
 	desc = "A small one shot use anti tank rocketlauncher, extremely basic in design, it will only tickle soft targets."
+	icon = 'icons/obj/weapons/guns/wide_guns.dmi'
 	icon_state = "ignifist"
+	worn_icon_state = "ignifist"
 	inhand_icon_state = "ignifist"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/ignifist
 	fire_sound = 'sound/weapons/gun/general/rocket_launch.ogg'
