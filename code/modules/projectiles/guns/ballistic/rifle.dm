@@ -373,6 +373,7 @@
 	desc = "While lever-actions have been horribly out of date for hundreds of years now, \
 	putting a nicely sized hole in a man-sized target with a .45 Long round has stayed relatively timeless."
 	icon_state = "brushgun"
+	worn_icon_state = "brushgun"
 	icon = 'monkestation/icons/obj/guns/guns.dmi'
 	bolt_wording = "Lever"
 	bolt_type = BOLT_TYPE_STANDARD

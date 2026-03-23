@@ -355,7 +355,7 @@
 	desc = "A hefty revolver with an equally large cylinder capable of holding five .585 Trappiste rounds."
 	icon = 'monkestation/code/modules/blueshift/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "takbok"
-	worn_icon = "trappiste_generic"
+	worn_icon_state = "trappiste_generic"
 	inhand_icon_state = "takbok"
 	fire_sound = 'monkestation/code/modules/blueshift/sounds/revolver_heavy.ogg'
 	suppressed_sound = 'monkestation/code/modules/blueshift/sounds/suppressed_heavy.ogg'
@@ -392,7 +392,7 @@
 /obj/item/gun/ballistic/revolver/takbok/blueshield
 	name = "unmarked takbok revolver" //Give it a unique prefix compared hellfire's 'modified' to stand out
 	icon_state = "takbok_blueshield"
-	worn_icon = "takbok_blueshield"
+	worn_icon_state = "takbok_blueshield"
 	inhand_icon_state = "takbok_blueshield"
 	desc = "A modified revolver resembling that of Trappiste's signature Takbok, notably lacking any of the company's orginal markings or traceable identifaction. The custom modifactions allows it to shoot the five .585 Trappiste rounds in its cylinder quicker and with more consistancy."
 
