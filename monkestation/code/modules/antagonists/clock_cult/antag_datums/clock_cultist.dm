@@ -191,7 +191,7 @@
 		converted_ai.disconnect_shell()
 		for(var/mob/living/silicon/robot/borg in converted_ai.connected_robots)
 			borg.set_connected_ai(null)
-		var/mutable_appearance/ai_clock = mutable_appearance('monkestation/icons/mob/clock_cult/clockwork_mobs.dmi', "aiframe")
+		var/mutable_appearance/ai_clock = mutable_appearance('icons/mob/clock_cult/clockwork_mobs.dmi', "aiframe")
 		converted_ai.add_overlay(ai_clock)
 
 	else if(iscyborg(converted_silicon))
@@ -223,7 +223,7 @@
 	name = "Clock Cultist (Preview only)"
 
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/clockwork
+	suit = /obj/item/clothing/suit/hooded/clockwork
 	head = /obj/item/clothing/head/helmet/clockwork
 	l_hand = /obj/item/clockwork/weapon/brass_sword
 

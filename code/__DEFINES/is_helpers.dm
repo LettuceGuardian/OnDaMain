@@ -71,6 +71,10 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 #define isplatingturf(A) (istype(A, /turf/open/floor/plating))
 
+#define isaicore(A) (istype(A, /obj/machinery/ai/data_core))
+
+#define isvalidAIloc(A) (isturf(A) || isaicore(A))
+
 #define isasteroidturf(A) (istype(A, /turf/open/misc/asteroid))
 
 #define istransparentturf(A) (HAS_TRAIT(A, TURF_Z_TRANSPARENT_TRAIT))
@@ -112,6 +116,7 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
 #define isshadowperson(A) (is_species(A, /datum/species/shadow))
+#define isblessedshadow(A) (is_species(A, /datum/species/shadow/blessed))
 #define isnightmare(A) (is_species(A, /datum/species/shadow/nightmare))
 #define isipc(A) (is_species(A, /datum/species/ipc)) // Monkestation Addition
 #define isgoblin(A) (is_species(A, /datum/species/goblin)) //Monkestation Addition
@@ -327,6 +332,9 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 	/obj/item/book,
 	/obj/item/spellbook,
 	/obj/item/infuser_book)))
+
+/// Checks if the given mob has a holy role
+#define IS_HOLY(mob) (mob?.mind?.holy_role)
 
 // Jobs
 #define is_job(job_type)  (istype(job_type, /datum/job))

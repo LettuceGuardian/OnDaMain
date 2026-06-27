@@ -120,12 +120,15 @@
 #define SPECIES_PLASMAMAN "plasmaman"
 #define SPECIES_PODPERSON "pod"
 #define SPECIES_SHADOW "shadow"
+#define SPECIES_SHADOW_BLESSED "shadow_blessed"
 #define SPECIES_DARKSPAWN "darkspawn"
 #define SPECIES_SKELETON "skeleton"
+#define SPECIES_SKELETON_FRAGILE "fragile_skeleton"
 #define SPECIES_SNAIL "snail"
 #define SPECIES_TALLBOY "tallboy"
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
+#define SPECIES_ZOMBIE_SHAMBLER "shambler"
 #define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
 #define SPECIES_ZOMBIE_INFECTIOUS_RUNNER "runnerzombie" //Monkestation Addition
 #define SPECIES_ZOMBIE_INFECTIOUS_TANK "tankzombie" //monkestation edit
@@ -394,6 +397,8 @@
 #define SLIP_WHEN_CRAWLING (1<<4)
 /// the mob won't slip if the turf has the TRAIT_TURF_IGNORE_SLIPPERY trait.
 #define SLIPPERY_TURF (1<<5)
+/// Slipping on this will send them sliding for a long time
+#define SUPER_DUPER_SLIDE (1<<6)
 
 #define MAX_CHICKENS 50
 
