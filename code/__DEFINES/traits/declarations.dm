@@ -283,9 +283,13 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NO_HUSK "no_husk"
 /// Species with this trait have 50% extra chance of bleeding from piercing and slashing wounds
 /* #define TRAIT_EASYBLEED "easybleed" */
+/// Mob recovers from addictions at an accelerated rate
+#define TRAIT_ADDICTIONRESILIENT "addiction_resilient"
 #define TRAIT_TOXINLOVER "toxinlover"
 /// Doesn't get overlays from being in critical.
 #define TRAIT_NOCRITOVERLAY "no_crit_overlay"
+/// For gloves that should not incur a penalty when doing surgery
+#define TRAIT_STERILE "sterilegloves"
 /// reduces the use time of syringes, pills, patches and medigels but only when using on someone
 #define TRAIT_FASTMED "fast_med_use"
 /// The mob is holy and resistance to cult magic
@@ -719,6 +723,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PRETENDER_ROYAL_METABOLISM "pretender_royal_metabolism"
 #define TRAIT_BALLMER_SCIENTIST "ballmer_scientist"
 #define TRAIT_MAINTENANCE_METABOLISM "maintenance_metabolism"
+#define TRAIT_GOBLIN_METABOLISM "goblin_metabolism"
 /* #define TRAIT_CORONER_METABOLISM "coroner_metabolism" */
 /* #define TRAIT_HUMAN_AI_METABOLISM "human_ai_metabolism" */
 
@@ -1336,7 +1341,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait given to mobs that have the basic eating element
 /* #define TRAIT_MOB_EATER "mob_eater" */
 /// Trait which means whatever has this is dancing by a dance machine
-/* #define TRAIT_DISCO_DANCER "disco_dancer" */
+#define TRAIT_DISCO_DANCER "disco_dancer"
 
 /// Appiled when wizard buy (/datum/spellbook_entry/perks/spalls_lottery) perk.
 /// Give 50/25% chance not spend a spellbook charge on 1/2 cost spell.
@@ -1433,6 +1438,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Demolition modifier when hitting this object is inverted (ie, 1 / demolition)
 #define TRAIT_INVERTED_DEMOLITION "demolition_inverted"
+
+/// Makes the mob immune to carpotoxin
+#define TRAIT_CARPOTOXIN_IMMUNE "carpotoxin_immune"
 
 /// This mob can hear the music from the DJ station.
 #define TRAIT_CAN_HEAR_MUSIC "can_hear_radio"
