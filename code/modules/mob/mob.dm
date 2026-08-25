@@ -211,10 +211,10 @@
 
 	var/t = "[span_notice("Coordinates: [x],[y] ")]\n"
 	t += "[span_danger("Temperature: [environment.temperature] ")]\n"
-	for(var/id in environment.gases)
-		var/gas = environment.gases[id]
-		if(gas[MOLES])
-			t+="[span_notice("[gas[GAS_META][META_GAS_NAME]]: [gas[MOLES]] ")]\n"
+	var/list/cached_gas_name = GAS_META[META_GAS_NAME]
+	for(var/gas_id, gas_moles in environment.moles)
+		if(gas_moles)
+			t += "[span_notice("[cached_gas_name[gas_id]]: [gas_moles] ")]\n"
 
 	to_chat(usr, t)
 
@@ -949,7 +949,7 @@
 		selected_hand = (active_hand_index % held_items.len)+1
 
 	if(istext(selected_hand))
-		selected_hand = lowertext(selected_hand)
+		selected_hand = LOWER_TEXT(selected_hand)
 		if(selected_hand == "right" || selected_hand == "r")
 			selected_hand = 2
 		if(selected_hand == "left" || selected_hand == "l")
@@ -1305,11 +1305,12 @@
 /**
  * Proc that returns TRUE if the mob can write using the writing_instrument, FALSE otherwise.
  *
- * This proc a side effect, outputting a message to the mob's chat with a reason if it returns FALSE.
+ * This proc has a side effect, outputting a message to the mob's chat with a reason if it returns FALSE.
  */
-/mob/proc/can_write(obj/item/writing_instrument)
+/mob/proc/can_write(obj/item/writing_instrument, silent_if_not_writing_tool = FALSE)
 	if(!istype(writing_instrument))
-		to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
+		if(!silent_if_not_writing_tool)
+			to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
 		return FALSE
 
 	if(!is_literate())
@@ -1322,7 +1323,8 @@
 
 	var/pen_info = writing_instrument.get_writing_implement_details()
 	if(!pen_info || (pen_info["interaction_mode"] != MODE_WRITING))
-		to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
+		if(!silent_if_not_writing_tool)
+			to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
 		return FALSE
 
 	if(has_gravity())
@@ -1697,4 +1699,3 @@
  */
 /mob/proc/get_access() as /list
 	return list()
-
