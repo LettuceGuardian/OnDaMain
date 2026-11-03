@@ -22,6 +22,14 @@
 	var/hitsound = 'sound/items/weapons/pierce.ogg'
 	/// Sound played when the projectile hits a wall
 	var/hitsound_wall
+	var/hitsound_non_living
+	var/hitsound_glass
+	var/hitsound_stone
+	var/hitsound_metal
+	var/hitsound_wood
+	var/hitsound_snow
+	var/near_miss_sound
+	var/ricochet_sound
 	var/mixer_channel
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -379,11 +387,12 @@
 		impact_x = entry_x + movement_vector?.pixel_x * rand(0, ICON_SIZE_X / 2)
 		impact_y = entry_y + movement_vector?.pixel_y * rand(0, ICON_SIZE_Y / 2)
 
-	if(isturf(target) && hitsound_wall)
-		playsound(src, hitsound_wall, clamp(vol_by_damage() + (suppressed ? 0 : 20), 0, 100), TRUE, -1,  mixer_channel = mixer_channel)
-
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
 		var/turf/closed/wall/target_wall = target_turf
+		var/wall_hit_sound = hitsound_wall || target_wall.bullet_hit_sfx(src)
+		if(wall_hit_sound)
+			var/hit_volume = hitsound_wall ? clamp(vol_by_damage() + (suppressed ? 0 : 20), 0, 100) : target_wall.hitsound_volume
+			playsound(target_wall, wall_hit_sound, hit_volume, TRUE, -1, mixer_channel = mixer_channel)
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_wall, impact_x, impact_y)
 
@@ -392,8 +401,15 @@
 			target_wall.take_damage(damage * wall_dem_mod, damage_type, armor_flag, armour_penetration = 100)
 		return BULLET_ACT_HIT
 
-	if (hitsound)
-		playsound(src, hitsound, vol_by_damage(), TRUE, -1,  mixer_channel = mixer_channel)
+	if(isliving(target))
+		if(hitsound)
+			playsound(src, hitsound, vol_by_damage(), TRUE, -1, mixer_channel = mixer_channel)
+	else
+		var/selected_hit_sound = target.bullet_hit_sfx(src)
+		if(isturf(target) && hitsound_wall)
+			selected_hit_sound = hitsound_wall
+		if(selected_hit_sound)
+			playsound(target, selected_hit_sound, target.hitsound_volume, TRUE, -1, mixer_channel = mixer_channel)
 
 	if (!isliving(target))
 		if(impact_effect_type && !hitscan)
@@ -507,6 +523,8 @@
 		damage *= ricochet_decay_damage
 		stamina *= ricochet_decay_damage
 		range = maximum_range
+		if(ricochet_sound)
+			playsound(get_turf(src), ricochet_sound, 100, TRUE, 2)
 		return
 
 	last_impact_turf = get_turf(target)
@@ -698,11 +716,20 @@
 		return
 	// else, try to hit mobs
 	// because if we impacted original and pierced we'll already have select target'd and hit everything else we should be hitting
+	var/hit_mob = FALSE
 	for(var/mob/potential_target in loc) // so I guess we're STILL doing a for loop of mobs because living movement would otherwise have snowflake code for projectile CanPass
 		// so the snowflake vs performance is pretty arguable here
 		if(can_hit_target(potential_target, potential_target == original, TRUE))
+			hit_mob = TRUE
 			impact(potential_target)
 			break
+	if(hit_mob || !near_miss_sound || maximum_range <= range + 2)
+		return
+	for(var/mob/living/misser in range(1, src))
+		if(misser.stat > SOFT_CRIT)
+			continue
+		misser.playsound_local(get_turf(src), near_miss_sound, 100, FALSE)
+		recoil_camera(misser, 1, 2, min(damage / 10, 5), angle)
 
 /**
  * Projectile crossed: When something enters a projectile's tile, make sure the projectile hits it if it should be hitting it.

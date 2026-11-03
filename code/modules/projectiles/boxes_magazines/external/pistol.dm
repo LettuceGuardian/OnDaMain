@@ -200,6 +200,15 @@
 	icon_state = "35"
 	base_icon_state = "35"
 	ammo_type = /obj/item/ammo_casing/c35
+
+/obj/item/ammo_box/magazine/m22lr
+	name = "pistol magazine (.22 LR)"
+	desc = "A single-stack handgun magazine designed to chamber .22 LR."
+	icon_state = "9x19p"
+	ammo_type = /obj/item/ammo_casing/c22lr
+	caliber = CALIBER_22LR
+	max_ammo = 10
+	w_class = WEIGHT_CLASS_TINY
 	caliber = CALIBER_35
 	max_ammo = 16
 	multiple_sprites = AMMO_BOX_PER_BULLET

@@ -108,6 +108,31 @@
 		pierce_hit = piercing_hit,
 	)
 
+/atom/proc/bullet_hit_sfx(obj/projectile/hitting_projectile)
+	if(!hitsound_volume)
+		return
+	var/selected_sound
+	switch(hitsound_type)
+		if(PROJECTILE_HITSOUND_FLESH)
+			selected_sound = hitting_projectile.hitsound
+		if(PROJECTILE_HITSOUND_NON_LIVING)
+			selected_sound = hitting_projectile.hitsound_non_living
+		if(PROJECTILE_HITSOUND_GLASS)
+			selected_sound = hitting_projectile.hitsound_glass
+		if(PROJECTILE_HITSOUND_STONE)
+			selected_sound = hitting_projectile.hitsound_stone
+		if(PROJECTILE_HITSOUND_METAL)
+			selected_sound = hitting_projectile.hitsound_metal
+		if(PROJECTILE_HITSOUND_WOOD)
+			selected_sound = hitting_projectile.hitsound_wood
+		if(PROJECTILE_HITSOUND_SNOW)
+			selected_sound = hitting_projectile.hitsound_snow
+	if(!selected_sound)
+		selected_sound = hitting_projectile.hitsound_non_living
+	if(!selected_sound)
+		selected_sound = hitting_projectile.hitsound
+	return selected_sound
+
 /**
  * React to being hit by a thrown object
  *

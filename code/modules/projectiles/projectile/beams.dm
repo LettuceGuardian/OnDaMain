@@ -6,6 +6,12 @@
 	damage_type = BURN
 	hitsound = 'sound/items/weapons/sear.ogg'
 	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
+	hitsound_non_living = 'sound/items/weapons/effects/searwall.ogg'
+	hitsound_glass = SFX_SHATTER
+	hitsound_stone = 'sound/items/weapons/sear.ogg'
+	hitsound_metal = 'sound/items/weapons/effects/searwall.ogg'
+	hitsound_wood = 'sound/items/weapons/sear.ogg'
+	hitsound_snow = 'sound/items/weapons/sear.ogg'
 	armor_flag = LASER
 	eyeblur = 4 SECONDS
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser

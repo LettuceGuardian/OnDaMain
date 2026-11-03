@@ -6,6 +6,12 @@
 	inhand_icon_state = "moistnugget"
 	worn_icon_state = "moistnugget"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction
+	spread = -1
+	spread_unwielded = 12
+	recoil = 4
+	wield_recoil = -3
+	wield_slowdown = 1
+	wield_delay = 1.2 SECONDS
 	bolt_wording = "bolt"
 	bolt_type = BOLT_TYPE_LOCKING
 	semi_auto = FALSE

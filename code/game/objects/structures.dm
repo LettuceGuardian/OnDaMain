@@ -7,6 +7,7 @@
 	layer = BELOW_OBJ_LAYER
 	flags_ricochet = RICOCHET_HARD
 	receive_ricochet_chance_mod = 0.6
+	hitsound_type = PROJECTILE_HITSOUND_METAL
 	pass_flags_self = PASSSTRUCTURE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	armor_type = /datum/armor/obj_structure

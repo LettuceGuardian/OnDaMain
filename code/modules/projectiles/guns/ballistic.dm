@@ -126,9 +126,6 @@
 	///What is the cap on our misfire probability? Do not set this to 100.
 	var/misfire_probability_cap = 25
 
-	///Recoil quantity when the gun is wielded
-	var/wield_recoil = 0
-
 	/// Does this gun have mag and nomag on mob variance?
 	var/alt_icons = FALSE
 	/// What the icon state is for the on-back guns
@@ -142,7 +139,6 @@
 
 /obj/item/gun/ballistic/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, wield_callback = CALLBACK(src, PROC_REF(on_wield)), unwield_callback = CALLBACK(src, PROC_REF(on_unwield)))
 	if(!spawn_magazine_type)
 		spawn_magazine_type = accepted_magazine_type
 	if (!spawnwithmagazine)
@@ -781,19 +777,6 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 
 /obj/item/suppressor/standard
 	desc = "A small-arms suppressor for maximum espionage."
-
-///Blueshift code!
-/obj/item/gun/ballistic/proc/on_wield()
-	SIGNAL_HANDLER
-
-	recoil = wield_recoil
-	spread = spread * 0.75
-
-/obj/item/gun/ballistic/proc/on_unwield()
-	SIGNAL_HANDLER
-
-	recoil = initial(recoil)
-	spread = initial(spread)
 
 /obj/item/gun/ballistic/proc/handle_magazine(mob/user, obj/item/ammo_box/magazine/inserting_magazine)
 	if(magazine) // If we already have a magazine inserted, we're going to begin tactically reloading it.

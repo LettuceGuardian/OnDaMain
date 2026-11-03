@@ -524,6 +524,7 @@
 	icon_state = "wood_table-0"
 	base_icon_state = "wood_table"
 	frame = /obj/structure/table_frame/wood
+	hitsound_type = PROJECTILE_HITSOUND_WOOD
 	framestack = /obj/item/stack/sheet/mineral/wood
 	buildstack = /obj/item/stack/sheet/mineral/wood
 	resistance_flags = FLAMMABLE

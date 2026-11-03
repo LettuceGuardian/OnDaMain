@@ -18,6 +18,10 @@
 	var/interaction_flags_atom = NONE
 
 	var/flags_ricochet = NONE
+	/// Material category used to choose projectile impact sounds.
+	var/hitsound_type = PROJECTILE_HITSOUND_NON_LIVING
+	/// Impact sound volume for projectiles hitting this atom.
+	var/hitsound_volume = 50
 
 	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
 	var/receive_ricochet_chance_mod = 1

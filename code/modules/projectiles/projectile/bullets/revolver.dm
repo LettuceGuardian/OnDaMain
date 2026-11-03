@@ -149,6 +149,13 @@
 	damage = 60
 	wound_bonus = -30
 
+/obj/projectile/bullet/c22lr
+	name = ".22 LR bullet"
+	damage = 20
+	armour_penetration = -45
+	ricochet_incidence_leeway = 20
+	ricochet_chance = 45
+
 // admin only really, for ocelot memes
 /obj/projectile/bullet/a357/match
 	name = ".357 match bullet"

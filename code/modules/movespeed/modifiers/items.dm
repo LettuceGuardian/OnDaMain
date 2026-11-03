@@ -23,5 +23,9 @@
 /datum/movespeed_modifier/belt_satchel
 	variable = TRUE
 
+/datum/movespeed_modifier/gun
+	multiplicative_slowdown = 1
+	variable = TRUE
+
 /datum/movespeed_modifier/hook_jawed
 	multiplicative_slowdown = 4

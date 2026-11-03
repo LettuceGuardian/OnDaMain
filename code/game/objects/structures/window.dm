@@ -31,6 +31,8 @@
 	var/knock_sound = 'sound/effects/glass/glassknock.ogg'
 	var/bash_sound = 'sound/effects/glass/glassbash.ogg'
 	var/hit_sound = 'sound/effects/glass/glasshit.ogg'
+	hitsound_type = PROJECTILE_HITSOUND_GLASS
+	hitsound_type = PROJECTILE_HITSOUND_GLASS
 	///Datum that the shard and debris type is pulled from for when the glass is broken.
 	var/datum/material/glass_material_datum = /datum/material/glass
 

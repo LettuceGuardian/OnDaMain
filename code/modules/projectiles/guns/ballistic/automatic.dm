@@ -3,6 +3,10 @@
 	can_suppress = TRUE
 	burst_size = 3
 	fire_delay = 2
+	spread = 0
+	spread_unwielded = 13
+	wield_slowdown = 0.35
+	wield_delay = 1 SECONDS
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 	semi_auto = TRUE
 	fire_sound = 'sound/items/weapons/gun/smg/shot.ogg'
@@ -655,7 +659,7 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 12
 	burst_size = 1
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.18 SECONDS
 	actions_types = list()
 	spread = 7.5
 	projectile_wound_bonus = -10

@@ -4,6 +4,12 @@
 	caliber = CALIBER_38
 	max_ammo = 6
 
+/obj/item/ammo_box/magazine/internal/cylinder/rev45
+	name = "Cattleman revolver cylinder"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = CALIBER_45
+	max_ammo = 6
+
 /obj/item/ammo_box/magazine/internal/cylinder/rev762
 	name = "\improper Nagant revolver cylinder"
 	ammo_type = /obj/item/ammo_casing/n762

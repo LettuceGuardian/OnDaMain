@@ -101,6 +101,10 @@
 			apply_projectile_effects(proj, def_zone, blocked)
 		return .
 
+	var/projectile_impact_damage = proj.damage * (100 - blocked) / 100
+	var/projectile_recoil = clamp(projectile_impact_damage / 4, 0.5, 10)
+	recoil_camera(src, projectile_recoil, projectile_recoil, projectile_impact_damage / 8, proj.angle)
+
 	var/hit_limb_zone = check_hit_limb_zone_name(def_zone)
 	var/organ_hit_text = ""
 	if (hit_limb_zone)

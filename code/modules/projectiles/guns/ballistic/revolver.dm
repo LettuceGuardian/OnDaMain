@@ -3,7 +3,12 @@
 	desc = "A suspicious revolver. Uses .357 ammo."
 	icon_state = "revolver"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder
-	recoil = 0.6
+	recoil = 1
+	wield_recoil = 0.5
+	spread_unwielded = 15
+	wield_slowdown = 0.3
+	fire_delay = 2
+	semi_auto = FALSE
 	fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
 	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
 	eject_sound = 'sound/items/weapons/gun/revolver/empty.ogg'
@@ -16,6 +21,15 @@
 	var/spin_delay = 10
 	var/recent_spin = 0
 	var/last_fire = 0
+
+/obj/item/gun/ballistic/revolver/cattleman
+	name = "Cattleman revolver"
+	desc = "A sturdy, old-fashioned revolver chambered in .45 ACP."
+	icon_state = "revolver"
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev45
+	fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
+	recoil = 0.6
+	wield_recoil = 0
 
 /obj/item/gun/ballistic/revolver/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	. = ..()

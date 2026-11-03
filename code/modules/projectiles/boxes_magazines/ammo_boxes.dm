@@ -200,6 +200,22 @@
 	desc = "A shiny box containing .35 Auto ammo for the \"Paco\" handgun."
 	icon = 'monkestation/code/modules/security/icons/paco_ammo.dmi'
 	icon_state = "35_ammobox"
+
+/obj/item/ammo_box/c22lr_box
+	name = "ammo box (.22 LR)"
+	desc = "A box of standard .22 LR ammunition."
+	icon_state = "357"
+	ammo_type = /obj/item/ammo_casing/c22lr
+	max_ammo = 75
+
+/obj/item/ammo_box/c45_speedloader
+	name = "speed loader (.45)"
+	desc = "Designed to quickly reload revolvers."
+	icon_state = "38"
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 6
+	multiple_sprites = AMMO_BOX_PER_BULLET
+	w_class = WEIGHT_CLASS_TINY
 	ammo_type = /obj/item/ammo_casing/c35
 	max_ammo = 40
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

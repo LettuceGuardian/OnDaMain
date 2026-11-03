@@ -5,6 +5,22 @@
 /datum/keybinding/human/can_use(client/user)
 	return ishuman(user.mob)
 
+/datum/keybinding/human/unique_action
+	hotkey_keys = list("CtrlSpace")
+	name = "unique_action"
+	full_name = "Perform unique item action"
+	description = ""
+	keybind_signal = COMSIG_KB_HUMAN_UNIQUEACTION
+
+/datum/keybinding/human/unique_action/down(client/user)
+	. = ..()
+	if(.)
+		return
+	var/obj/item/held_item = user.mob.get_active_held_item()
+	if(held_item)
+		held_item.unique_action(user.mob)
+	return TRUE
+
 /datum/keybinding/human/quick_equip
 	hotkey_keys = list("E")
 	name = "quick_equip"

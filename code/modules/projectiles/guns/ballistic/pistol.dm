@@ -5,6 +5,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m9mm
 	recoil = 0.3
+	wield_delay = 0.2 SECONDS
+	spread = -2
+	spread_unwielded = 4
+	wield_slowdown = 0.15
 	can_suppress = TRUE
 	burst_size = 1
 	fire_delay = 0
@@ -25,6 +29,21 @@
 	suppressor_x_offset = 10
 	suppressor_y_offset = -1
 	gun_flags = GUN_SMOKE_PARTICLES
+
+/obj/item/gun/ballistic/automatic/pistol/himehabu
+	name = "Himehabu"
+	desc = "A very small .22 LR pistol, favored by spies and prized for its light recoil."
+	icon_state = "pistol"
+	w_class = WEIGHT_CLASS_TINY
+	accepted_magazine_type = /obj/item/ammo_box/magazine/m22lr
+	can_suppress = FALSE
+	fire_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	recoil = 0
+	wield_recoil = 0
+	spread = 0
+	spread_unwielded = 0
+	wield_slowdown = 0
+	wield_delay = 0
 
 /obj/item/gun/ballistic/automatic/pistol/no_mag
 	spawnwithmagazine = FALSE

@@ -14,6 +14,14 @@
 #define BLOCKS_CONSTRUCTION_DIR (1<<10) //! Does this object prevent same-direction things from being built on it?
 #define IGNORE_DENSITY (1<<11) //! Can we ignore density when building on this object? (for example, directional windows and grilles)
 #define INFINITE_RESKIN (1<<12) // We can reskin this item infinitely
+// Projectile impact sound materials
+#define PROJECTILE_HITSOUND_FLESH (1<<0)
+#define PROJECTILE_HITSOUND_NON_LIVING (1<<1)
+#define PROJECTILE_HITSOUND_GLASS (1<<2)
+#define PROJECTILE_HITSOUND_STONE (1<<3)
+#define PROJECTILE_HITSOUND_METAL (1<<4)
+#define PROJECTILE_HITSOUND_WOOD (1<<5)
+#define PROJECTILE_HITSOUND_SNOW (1<<6)
 
 // If you add new ones, be sure to add them to /obj/Initialize as well for complete mapping support
 

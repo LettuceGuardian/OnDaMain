@@ -35,7 +35,8 @@
 	var/suppressed_sound = 'sound/items/weapons/gun/general/heavy_shot_suppressed.ogg'
 	var/suppressed_volume = 60
 	var/can_unsuppress = TRUE
-	var/recoil = 0 //boom boom shake the room
+	var/recoil = 4 //boom boom shake the room
+	var/wield_recoil = 2
 	var/clumsy_check = TRUE
 	var/obj/item/ammo_casing/chambered = null
 	trigger_guard = TRIGGER_GUARD_NORMAL //trigger guard on the weapon, hulks can't fire them with their big meaty fingers
@@ -56,7 +57,10 @@
 	/// Even snowflakier way to modify projectile wounding bonus/potential for projectiles fired from this gun.
 	var/projectile_wound_bonus = 0
 
-	var/spread = 0 //Spread induced by the gun itself.
+	/// How much the bullet scatters when fired while wielded.
+	var/spread = 4
+	/// How much the bullet scatters when fired while unwielded.
+	var/spread_unwielded = 12
 	var/randomspread = 1 //Set to 0 for shotguns. This is used for weapons that don't fire all their bullets at once.
 
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
@@ -73,6 +77,11 @@
 
 	var/pb_knockback = 0 //tiles of knockback
 	var/pbk_gentle = FALSE //whether getting knocked into a wall/mob will stun
+	var/wielded = FALSE
+	var/wielded_fully = FALSE
+	var/wield_slowdown = 0.1
+	var/wield_delay = 0.4 SECONDS
+	var/wield_time = 0
 
 	///a multiplier of the duration the recoil takes to go back to normal view, this is (recoil*recoil_backtime_multiplier)+1
 	var/recoil_backtime_multiplier = 2
@@ -84,6 +93,9 @@
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/two_handed)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_gun_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_gun_unwield))
 	if(pin)
 		pin = new pin(src)
 
@@ -93,6 +105,29 @@
 	if(has_manufacturer)
 		give_manufacturer_examine()
 
+
+/obj/item/gun/proc/on_gun_wield(obj/item/source, mob/living/user)
+	SIGNAL_HANDLER
+	wielded = TRUE
+	INVOKE_ASYNC(src, PROC_REF(do_wield), user)
+
+/obj/item/gun/proc/do_wield(mob/living/user)
+	if(wield_slowdown)
+		user.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/gun, multiplicative_slowdown = wield_slowdown)
+	wield_time = world.time + wield_delay
+	if(wield_delay && !do_after(user, wield_delay, src, IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(is_wielded))))
+		return FALSE
+	wielded_fully = TRUE
+
+/obj/item/gun/proc/is_wielded()
+	return wielded
+
+/obj/item/gun/proc/on_gun_unwield(obj/item/source, mob/living/user)
+	SIGNAL_HANDLER
+	wielded = FALSE
+	wielded_fully = FALSE
+	user.remove_movespeed_modifier(/datum/movespeed_modifier/gun)
+
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
 		QDEL_NULL(pin)
@@ -101,6 +136,9 @@
 	if(isatom(suppressed)) //SUPPRESSED IS USED AS BOTH A TRUE/FALSE AND AS A REF, WHAT THE FUCKKKKKKKKKKKKKKKKK
 		QDEL_NULL(suppressed)
 	return ..()
+
+/obj/item/gun/unique_action(mob/living/user)
+	attack_self(user)
 
 /obj/item/gun/apply_fantasy_bonuses(bonus)
 	. = ..()
@@ -176,11 +214,10 @@
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
-	var/angle = get_angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
-	if(angle > 360)
-		angle -= 360
-	if(recoil && !tk_firing(user))
-		recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+	var/angle = get_angle(user, pbtarget)
+	var/recoil_amount = wielded_fully ? wield_recoil : recoil
+	if(recoil_amount && !tk_firing(user))
+		simulate_recoil(user, recoil_amount, angle)
 	fire_sounds()
 	if(!suppressed)
 		if(message)
@@ -216,8 +253,15 @@
 		addtimer(VARSET_CALLBACK(gun_smoke.particles, count, 0), 5)
 		addtimer(VARSET_CALLBACK(gun_smoke.particles, drift, 0), 3)
 		QDEL_IN(gun_smoke, 0.6 SECONDS)
-	if(HAS_TRAIT(user, TRAIT_FEEBLE) && recoil && !tk_firing(user))
+	if(HAS_TRAIT(user, TRAIT_FEEBLE) && recoil_amount && !tk_firing(user))
 		feeble_quirk_recoil(user, get_dir(user, pbtarget), TRUE)
+
+/obj/item/gun/proc/simulate_recoil(mob/living/user, recoil_amount, firing_angle)
+	var/actual_angle = firing_angle + rand(-recoil_deviation, recoil_deviation) + 180
+	if(actual_angle > 360)
+		actual_angle -= 360
+	if(recoil_amount > 0)
+		recoil_camera(user, recoil_amount + 1, (recoil_amount * recoil_backtime_multiplier) + 1, recoil_amount, actual_angle)
 
 ///Makes a recoil-like animation on the mob camera.
 /proc/recoil_camera(mob/M, duration, backtime_duration, strength, angle)
@@ -370,11 +414,9 @@
 	if(check_botched(user, target))
 		return
 
-	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
-	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
-		if(!istype(user.get_inactive_held_item(), /obj/item/offhand))
-			balloon_alert(user, "use both hands!")
-			return
+	if(weapon_weight == WEAPON_HEAVY && !wielded)
+		balloon_alert(user, "wield [src] to fire!")
+		return
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
@@ -495,8 +537,9 @@
 		bonus_spread += 35
 		base_bonus_spread += 10
 
-	if(spread)
-		randomized_gun_spread =	rand(0,spread)
+	var/actual_spread = wielded_fully ? spread : spread_unwielded
+	if(actual_spread)
+		randomized_gun_spread = rand(0, actual_spread)
 	var/randomized_bonus_spread = rand(base_bonus_spread, bonus_spread)
 
 	var/modified_delay = fire_delay

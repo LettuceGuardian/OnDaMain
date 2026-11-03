@@ -102,7 +102,14 @@
 			damage_dealt = -1 * adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_amount)
 
 	SEND_SIGNAL(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, damage_dealt, damagetype, def_zone, blocked, wound_bonus, bare_wound_bonus, sharpness, attack_direction, attacking_item)
+	if(damage_dealt > 0 && stat <= HARD_CRIT && damagetype in list(BRUTE, BURN, STAMINA))
+		shake_animation(damage_dealt)
 	return damage_dealt
+
+/mob/living/proc/shake_animation(damage_amount)
+	if(damage_amount <= 0)
+		return
+	recoil_camera(src, 1, 2, min(damage_amount / 8, 8), rand(0, 359))
 
 /**
  * Used in tandem with [/mob/living/proc/apply_damage] to calculate modifier applied into incoming damage

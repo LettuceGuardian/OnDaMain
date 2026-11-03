@@ -4,6 +4,7 @@
 	icon_state = "computer"
 	density = TRUE
 	max_integrity = 200
+	hitsound_type = PROJECTILE_HITSOUND_GLASS
 	integrity_failure = 0.5
 	armor_type = /datum/armor/machinery_computer
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON|INTERACT_MACHINE_SET_MACHINE|INTERACT_MACHINE_REQUIRES_LITERACY

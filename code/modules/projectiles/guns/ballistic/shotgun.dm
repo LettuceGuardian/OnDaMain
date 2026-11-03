@@ -20,6 +20,12 @@
 	semi_auto = FALSE
 	internal_magazine = TRUE
 	casing_ejector = FALSE
+	spread = 4
+	spread_unwielded = 10
+	recoil = 4
+	wield_recoil = 2
+	wield_slowdown = 0.45
+	wield_delay = 0.6 SECONDS
 	bolt_wording = "pump"
 	cartridge_wording = "shell"
 	tac_reloads = FALSE
