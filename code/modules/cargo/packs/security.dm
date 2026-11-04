@@ -223,24 +223,6 @@
 		)
 	crate_name = "\improper \"Paco\" handgun crate"
 
-/datum/supply_pack/security/cattleman
-	name = "Cattleman Revolver Crate"
-	desc = "Contains two Cattleman revolvers chambered in .45 ACP."
-	cost = CARGO_CRATE_VALUE * 5
-	contains = list(
-		/obj/item/gun/ballistic/revolver/cattleman = 2,
-	)
-	crate_name = "Cattleman revolver crate"
-
-/datum/supply_pack/security/cattleman_ammo
-	name = ".45 ACP Speedloader Crate"
-	desc = "Contains four .45 ACP revolver speedloaders, each holding six rounds."
-	cost = CARGO_CRATE_VALUE * 3
-	contains = list(
-		/obj/item/ammo_box/c45_speedloader = 4,
-	)
-	crate_name = ".45 ACP speedloader crate"
-
 /datum/supply_pack/security/pacoammo
 	name = "FS HG .35 Auto \"Paco\" non-lethal ammo crate"
 	desc = "Short on ammo? No worries, this crate contains three .35 Auto rubber magazines, and the respective ammunition packet."

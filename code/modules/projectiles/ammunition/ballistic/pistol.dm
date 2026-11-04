@@ -54,12 +54,6 @@
 	caliber = CALIBER_50
 	projectile_type = /obj/projectile/bullet/a50ae
 
-/obj/item/ammo_casing/c22lr
-	name = ".22 LR bullet casing"
-	desc = "A .22 LR bullet casing."
-	caliber = CALIBER_22LR
-	projectile_type = /obj/projectile/bullet/c22lr
-
 
 // .35 Sol Short
 // Pistol caliber caseless round used almost exclusively by SolFed weapons

@@ -30,21 +30,6 @@
 	suppressor_y_offset = -1
 	gun_flags = GUN_SMOKE_PARTICLES
 
-/obj/item/gun/ballistic/automatic/pistol/himehabu
-	name = "Himehabu"
-	desc = "A very small .22 LR pistol, favored by spies and prized for its light recoil."
-	icon_state = "pistol"
-	w_class = WEIGHT_CLASS_TINY
-	accepted_magazine_type = /obj/item/ammo_box/magazine/m22lr
-	can_suppress = FALSE
-	fire_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
-	recoil = 0
-	wield_recoil = 0
-	spread = 0
-	spread_unwielded = 0
-	wield_slowdown = 0
-	wield_delay = 0
-
 /obj/item/gun/ballistic/automatic/pistol/no_mag
 	spawnwithmagazine = FALSE
 

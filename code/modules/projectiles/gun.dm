@@ -137,9 +137,6 @@
 		QDEL_NULL(suppressed)
 	return ..()
 
-/obj/item/gun/unique_action(mob/living/user)
-	attack_self(user)
-
 /obj/item/gun/apply_fantasy_bonuses(bonus)
 	. = ..()
 	fire_delay = modify_fantasy_variable("fire_delay", fire_delay, -bonus, 0)
