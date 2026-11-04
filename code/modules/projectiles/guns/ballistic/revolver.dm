@@ -22,15 +22,6 @@
 	var/recent_spin = 0
 	var/last_fire = 0
 
-/obj/item/gun/ballistic/revolver/cattleman
-	name = "Cattleman revolver"
-	desc = "A sturdy, old-fashioned revolver chambered in .45 ACP."
-	icon_state = "revolver"
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev45
-	fire_sound = 'sound/items/weapons/gun/revolver/shot_alt.ogg'
-	recoil = 0.6
-	wield_recoil = 0
-
 /obj/item/gun/ballistic/revolver/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
 	. = ..()
 	if(.)
