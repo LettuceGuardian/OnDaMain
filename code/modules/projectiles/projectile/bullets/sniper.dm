@@ -1,3 +1,11 @@
+///.310 Strilka (DMR)
+
+/obj/projectile/bullet/strilka310
+	name = ".310 Strilka bullet"
+	damage = 55
+	armour_penetration = 50
+	speed_mod = BULLET_SPEED_SNIPER
+
 // .50 BMG (Sniper)
 
 /obj/projectile/bullet/p50
@@ -120,17 +128,17 @@
 	ricochet_shoots_firer = FALSE
 
 
-///.60 Strela (Wylom AM rifle)
+///.60 Strela (Wylom AM rifle) Likely being killed
 
 /obj/projectile/bullet/p60strela // The funny thing is, these are wild but you only get three of them a magazine
 	name =".60 Strela bullet"
 	icon_state = "gaussphase"
-	speed = 1.6
-	damage = 50
+	damage = 60
 	armour_penetration = 80
 	wound_bonus = 10
 	bare_wound_bonus = 10
 	demolition_mod = 1.8
+	speed_mod = BULLET_SPEED_SNIPER
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30
 

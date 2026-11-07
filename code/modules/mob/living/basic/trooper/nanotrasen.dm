@@ -48,7 +48,7 @@
 	name = "Nanotrasen Assault Officer"
 	desc = "Nanotrasen Assault Officer. Contact CentCom if you saw him on your station. Prepare to die, if you've been found near Syndicate property."
 
-	casingtype = /obj/item/ammo_casing/a223/weak
+	casingtype = /obj/item/ammo_casing/a556/weak
 	burst_shots = 4
 	ranged_cooldown = 3 SECONDS
 	projectilesound = 'sound/items/weapons/gun/smg/shot.ogg'

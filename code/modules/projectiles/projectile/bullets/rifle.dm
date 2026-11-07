@@ -2,20 +2,38 @@
 // 7.62 (Nagant Rifle)
 
 /obj/projectile/bullet/a762
-	name = "7.62 bullet"
-	damage = 60
-	armour_penetration = 0
-	armour_ignorance = 10
-	wound_bonus = -45
-	wound_falloff_tile = 0
+	name = "7.62x54R bullet"
+	damage = 37
+	armour_penetration = 30
+	speed = BULLET_SPEED_RIFLE
 
 /obj/projectile/bullet/a762/surplus
-	name = "7.62 surplus bullet"
-	weak_against_armour = TRUE //this is specifically more important for fighting carbons than fighting noncarbons. Against a simple mob, this is still a full force bullet
+	name = "7.62x54R surplus bullet"
+	armour_penetration = 10 //this is specifically more important for fighting carbons than fighting noncarbons. Against a simple mob, this is still a full force bullet
 	armour_ignorance = 0
+	speed_mod = BULLET_SPEED_SURPLUS_MOD
+
+/obj/projectile/bullet/a762/match
+	name = "7.62x54R match bullet"
+	damage = 40
+	armour_penetration = 27
+	speed_mod = BULLET_SPEED_AP_MOD
+	ricochets_max = 4
+	ricochet_chance = 80
+	ricochet_auto_aim_angle = 40
+	ricochet_auto_aim_range = 5
+	ricochet_incidence_leeway = 50
+	ricochet_decay_chance = 1
+	ricochet_decay_damage = 1
+
+/obj/projectile/bullet/a762
+	name = "8x50mmR hollow point bullet"
+	damage = 50
+	armour_penetration = 10
+	speed_mod = BULLET_SPEED_HP_MOD
 
 /obj/projectile/bullet/a762/enchanted
-	name = "enchanted 7.62 bullet"
+	name = "enchanted 7.62x54R bullet"
 	damage = 20
 	stamina = 40
 
@@ -24,9 +42,19 @@
 
 /obj/projectile/bullet/a556
 	name = "5.56mm bullet"
-	damage = 35
-	armour_penetration = 75
+	damage = 25
+	armour_penetration = 20
 	wound_bonus = -40
+
+/obj/projectile/bullet/a556/hp
+	name = "5.56mm hollow point bullet"
+	damage = 35
+	armour_penetration = -20
+
+/obj/projectile/bullet/a556/ap
+	name = "5.56mm armor piercing bullet"
+	damage = 22
+	armour_penetration = 40
 
 /obj/projectile/bullet/a556/weak //centcom
 	damage = 20
@@ -37,23 +65,6 @@
 	damage = 20
 	armour_penetration = 80
 	projectile_phasing =  PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS
-
-/obj/projectile/bullet/a223
-	name = ".223 bullet"
-	damage = 35
-	armour_penetration = 40
-	wound_bonus = -40
-
-/obj/projectile/bullet/a223/weak //centcom
-	damage = 20
-
-/obj/projectile/bullet/a223/phasic
-	name = ".223 phasic bullet"
-	icon_state = "gaussphase"
-	damage = 30
-	armour_penetration = 100
-	projectile_phasing =  PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS
-
 
 // .40 Sol Long, caseless rifle bullets
 
@@ -128,37 +139,3 @@
 		var/mob/living/carbon/gaslighter = target
 		gaslighter.adjust_fire_stacks(firestacks_to_give)
 		gaslighter.ignite_mob()
-
-///.310 Strilka, like 7.62 nagant but also not
-
-/obj/projectile/bullet/strilka310
-	name = ".310 Strilka bullet"
-	damage = 55    //-5 from mosin
-	armour_penetration = 10
-	wound_bonus = -50  //-5 from mosin
-	wound_falloff_tile = 0
-
-/obj/projectile/bullet/strilka310/surplus
-	name = ".310 Strilka surplus bullet"
-	weak_against_armour = TRUE //this is specifically more important for fighting carbons than fighting noncarbons. Against a simple mob, this is still a full force bullet
-	armour_penetration = 0
-
-/obj/projectile/bullet/strilka310/rubber
-	name = ".310 rubber bullet"
-	damage = 10
-	stamina = 27.5
-	ricochets_max = 5
-	ricochet_incidence_leeway = 0
-	ricochet_chance = 130
-	ricochet_decay_damage = 0.7
-	shrapnel_type = null
-	sharpness = NONE
-	embed_type = null
-
-/obj/projectile/bullet/strilka310/ap
-	name = ".310 armor-piercing bullet"
-	damage = 45
-	armour_penetration = 60
-	wound_falloff_tile = -2
-	wound_bonus = -45
-	speed = 2

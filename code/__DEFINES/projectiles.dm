@@ -151,6 +151,22 @@
 /// For how long projectile tracers linger
 #define PROJECTILE_TRACER_DURATION 0.3 SECONDS
 
+//vibes based bullet speed
+
+#define BULLET_SPEED_SHOTGUN 1.5
+#define BULLET_SPEED_HANDGUN 1.6
+#define BULLET_SPEED_REVOLVER 1.6
+#define BULLET_SPEED_PDW 1.9
+#define BULLET_SPEED_RIFLE 1.9
+#define BULLET_SPEED_SNIPER 2
+
+//speed modifiers
+#define BULLET_SPEED_AP_MOD 0.05
+#define BULLET_SPEED_HP_MOD -0.05
+#define BULLET_SPEED_RUBBER_MOD -0.1
+#define BULLET_SPEED_HV_MOD 0.1
+#define BULLET_SPEED_SURPLUS_MOD -0.05
+
 // open to suggestions on where to put these overrides
 // hugely not a fan of this but we do what we gotta
 

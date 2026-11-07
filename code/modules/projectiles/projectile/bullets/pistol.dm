@@ -1,59 +1,128 @@
+//.22lr (Low power spam round)
+
+/obj/projectile/bullet/c22lr
+	name = ".22LR bullet"
+	damage = 20
+	armour_penetration = -40
+	ricochet_incidence_leeway = 20
+	ricochet_chance = 65
+	speed = BULLET_SPEED_HANDGUN
+
+/obj/projectile/bullet/c22lr/surplus
+	name = ".22LR surplus bullet"
+
+/obj/projectile/bullet/c22lr/hp
+	name = ".22LR HP bullet"
+	damage = 24
+	armour_penetration = -50
+	ricochet_chance = 0
+	speed_mod = BULLET_SPEED_HP_MOD
+
+/obj/projectile/bullet/c22lr/ap
+	name = ".22LR armor piercing bullet"
+	damage = 18
+	armour_penetration = -20
+	ricochet_incidence_leeway = 20
+	ricochet_chance = 30
+	speed_mod = BULLET_SPEED_AP_MOD
+
 // 9mm (Makarov and Stechkin APS)
 
 /obj/projectile/bullet/c9mm
 	name = "9mm bullet"
-	damage = 30
-	embed_type = /datum/embedding/bullet_c9mm
-
-/datum/embedding/bullet_c9mm
-	embed_chance = 15
-	fall_chance = 3
-	jostle_chance = 4
-	ignore_throwspeed_threshold = TRUE
-	pain_stam_pct = 0.4
-	pain_mult = 5
-	jostle_pain_mult = 6
-	rip_time = 10
+	damage = 20
+	armour_penetration = -20
+	speed = BULLET_SPEED_HANDGUN
 
 /obj/projectile/bullet/c9mm/ap
 	name = "9mm armor-piercing bullet"
-	damage = 27
-	armour_penetration = 75
-	embed_type = null
-	shrapnel_type = null
+	damage = 18
+	armour_penetration = 10
+	speed = BULLET_SPEED_AP_MOD
 
 /obj/projectile/bullet/c9mm/hp
-	name = "9mm hollow-point bullet"
-	damage = 40
-	weak_against_armour = TRUE
+	name = "9mm hollow point bullet"
+	damage = 30
+	armour_penetration = -30
+	speed = BULLET_SPEED_HP_MOD
 
 /obj/projectile/bullet/incendiary/c9mm
 	name = "9mm incendiary bullet"
 	damage = 15
 	fire_stacks = 2
-
+	armour_penetration = -30
 
 // 10mm
 
 /obj/projectile/bullet/c10mm
 	name = "10mm bullet"
-	damage = 40
+	damage = 25
+	armour_penetration = -20
+	speed = BULLET_SPEED_HANDGUN
 
 /obj/projectile/bullet/c10mm/ap
 	name = "10mm armor-piercing bullet"
-	damage = 35
-	armour_penetration = 60
+	damage = 25
+	armour_penetration = 10
+	speed = BULLET_SPEED_AP_MOD
 
 /obj/projectile/bullet/c10mm/hp
-	name = "10mm hollow-point bullet"
-	damage = 50
-	weak_against_armour = TRUE
+	name = "10mm hollow point bullet"
+	damage = 35
+	armour_penetration = -30
+	speed = BULLET_SPEED_HP_MOD
 
 /obj/projectile/bullet/incendiary/c10mm
 	name = "10mm incendiary bullet"
 	damage = 20
 	fire_stacks = 3
 
+// .45 (M1911 & C20r)
+
+/obj/projectile/bullet/c45
+	name = ".45 bullet"
+	damage = 25
+	armour_penetration = -20
+	speed = BULLET_SPEED_HANDGUN
+
+/obj/projectile/bullet/c45/ap
+	name = ".45 armor-piercing bullet"
+	damage = 22
+	armour_penetration = 10
+	speed_mod = BULLET_SPEED_AP_MOD
+
+/obj/projectile/bullet/c45/hp
+	name = ".45 hollow-point bullet"
+	damage = 37
+	armour_penetration = -30
+	speed_mod = BULLET_SPEED_HP_MOD
+
+/obj/projectile/bullet/incendiary/c45
+	name = ".45 incendiary bullet"
+	damage = 15
+	fire_stacks = 2
+
+/obj/projectile/bullet/c45/rubber
+	name = ".45 rubber bullet"
+	damage = 7
+	stamina = 37
+	armour_penetration = -30
+	speed_mod = BULLET_SPEED_RUBBER_MOD
+	ricochet_chance = 130
+	ricochet_decay_damage = 1
+	shrapnel_type = null
+	sharpness = NONE
+	embed_type = null
+
+/obj/projectile/bullet/c45/caseless
+	damage = 26 //parent damage var is 30
+
+// .50AE (Desert Eagle)
+
+/obj/projectile/bullet/a50ae
+	name = ".50AE bullet"
+	damage = 60
+	speed_mod = BULLET_SPEED_HP_MOD
 
 ///.35 sol short, weak crew pistol/smg round
 
@@ -109,31 +178,6 @@
 	damage = 13
 	bare_wound_bonus = -30
 	armour_penetration = 30
-
-
-///.585 Trappiste, heavy crew pistol/smg round
-
-/obj/projectile/bullet/c585trappiste
-	name = ".585 Trappiste bullet"
-	damage = 25
-	wound_bonus = -10
-
-/obj/projectile/bullet/c585trappiste/incapacitator
-	name = ".585 Trappiste flathead bullet"
-	damage = 9
-	stamina = 30
-	wound_bonus = -20
-	weak_against_armour = TRUE
-	shrapnel_type = null
-	sharpness = NONE
-	embed_type = null
-
-/obj/projectile/bullet/c585trappiste/hollowpoint
-	name = ".585 Trappiste hollowhead bullet"
-	damage = 25
-	weak_against_armour = TRUE
-	wound_bonus = 10
-	bare_wound_bonus = 20
 
 
 ///.35 Auto, sec standard carry round

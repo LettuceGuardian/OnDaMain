@@ -11,6 +11,7 @@
 	bare_wound_bonus = 10
 	embed_type = /datum/embedding/n762
 	embed_falloff_tile = -4
+	speed = BULLET_SPEED_REVOLVER
 
 /datum/embedding/n762
 	embed_chance = 25
@@ -22,25 +23,17 @@
 	jostle_pain_mult = 5
 	rip_time = 1 SECONDS
 
-// .50AE (Desert Eagle)
-
-/obj/projectile/bullet/a50ae
-	name = ".50AE bullet"
-	damage = 60
-
 // .38 (Detective's Gun)
 
 /obj/projectile/bullet/c38
 	name = ".38 bullet"
-	damage = 25
+	damage = 20
+	armour_penetration = -20
 	ricochets_max = 2
 	ricochet_chance = 50
 	ricochet_auto_aim_angle = 10
 	ricochet_auto_aim_range = 3
-	wound_bonus = -20
-	bare_wound_bonus = 10
-	embed_type = /datum/embedding/bullet_c38
-	embed_falloff_tile = -4
+	speed = BULLET_SPEED_REVOLVER
 
 /datum/embedding/bullet_c38
 	embed_chance = 25
@@ -61,32 +54,29 @@
 	ricochet_incidence_leeway = 50
 	ricochet_decay_chance = 1
 	ricochet_decay_damage = 1
+	speed_mod = BULLET_SPEED_AP_MOD
 
 /obj/projectile/bullet/c38/match/bouncy
 	name = ".38 Rubber bullet"
 	damage = 10
-	stamina = 25
-	weak_against_armour = TRUE
+	stamina = 28
 	ricochets_max = 6
 	ricochet_incidence_leeway = 0
 	ricochet_chance = 130
-	ricochet_decay_damage = 1 //0.8 to 1 monkestation edit let them have fun
+	ricochet_decay_damage = 1
 	shrapnel_type = null
 	sharpness = NONE
 	embed_type = null
+	speed_mod = BULLET_SPEED_RUBBER_MOD
 
 // premium .38 ammo from cargo, weak against armor, lower base damage, but excellent at embedding and causing slice wounds at close range
 /obj/projectile/bullet/c38/dumdum
 	name = ".38 DumDum bullet"
-	damage = 15
+	damage = 20
 	weak_against_armour = TRUE
 	ricochets_max = 0
 	sharpness = SHARP_EDGED
-	wound_bonus = 20
-	bare_wound_bonus = 20
-	embed_type = /datum/embedding/bullet_c38_dumdum
-	wound_falloff_tile = -5
-	embed_falloff_tile = -15
+	speed_mod = BULLET_SPEED_HP_MOD
 
 /datum/embedding/bullet_c38_dumdum
 	embed_chance = 75
@@ -146,8 +136,13 @@
 
 /obj/projectile/bullet/a357
 	name = ".357 bullet"
+	damage = 35
+
+/obj/projectile/bullet/a357/hp
+	name = ".357 hollow point bullet"
 	damage = 60
-	wound_bonus = -30
+	armour_penetration = -30
+	speed_mod = BULLET_SPEED_HP_MOD
 
 // admin only really, for ocelot memes
 /obj/projectile/bullet/a357/match
@@ -158,35 +153,43 @@
 	ricochet_auto_aim_range = 6
 	ricochet_incidence_leeway = 80
 	ricochet_decay_chance = 1
-
+	speed_mod = BULLET_SPEED_AP_MOD
 
 ///.45 Long, also used in the Brush Gun
 
-/obj/projectile/bullet/g45l/rubber
-	name = ".45 Long rubber bullet"
-	damage = 5
-	stamina = 17.5
-	weak_against_armour = TRUE
-	sharpness = NONE
-	embed_type = null
 
 /obj/projectile/bullet/g45l
 	name = ".45 Long bullet"
-	damage = 25
-	weak_against_armour = TRUE // High fire rate
-	wound_bonus = -10
-	sharpness = SHARP_EDGED
-	embed_type = /datum/embedding/g45l
+	damage = 30
+	speed_mod = BULLET_SPEED_HP_MOD
 
-/datum/embedding/g45l
-	embed_chance = 25
-	fall_chance = 2
-	jostle_chance = 2
-	ignore_throwspeed_threshold = TRUE
-	pain_stam_pct = 0.4
-	pain_mult = 3
-	jostle_pain_mult = 5
-	rip_time = 1 SECONDS
+/obj/projectile/bullet/g45l/rubber
+	name = ".45 Long rubber bullet"
+	damage = 7.5
+	stamina = 35
+	sharpness = NONE
+	speed_mod = BULLET_SPEED_RUBBER_MOD
+
+///.585 Trappiste, heavy crew pistol/smg round
+
+/obj/projectile/bullet/c585trappiste
+	name = ".585 Trappiste bullet"
+	damage = 60
+	speed_mod = BULLET_SPEED_REVOLVER
+/obj/projectile/bullet/c585trappiste/incapacitator
+	name = ".585 Trappiste flathead bullet"
+	damage = 10
+	stamina = 40
+	wound_bonus = -20
+	shrapnel_type = null
+	sharpness = NONE
+	speed_mod = BULLET_SPEED_RUBBER_MOD
+
+/obj/projectile/bullet/c585trappiste/hollowpoint
+	name = ".585 Trappiste hollowhead bullet"
+	damage = 60
+	armour_penetration = -30
+	speed_mod = BULLET_SPEED_HP_MOD
 
 //.45-70, mining revolver
 

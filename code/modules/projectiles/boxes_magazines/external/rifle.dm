@@ -25,19 +25,6 @@
 	name = "toploader magazine (5.56mm Phasic)"
 	ammo_type = /obj/item/ammo_casing/a556/phasic
 
-/obj/item/ammo_box/magazine/m223
-	name = "toploader magazine (.223)"
-	icon_state = ".223"
-	ammo_type = /obj/item/ammo_casing/a223
-	caliber = CALIBER_A223
-	max_ammo = 30
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
-
-/obj/item/ammo_box/magazine/m223/phasic
-	name = "toploader magazine (.223 Phasic)"
-	ammo_type = /obj/item/ammo_casing/a223/phasic
-
-
 ///Rostokov "rifle"
 
 /obj/item/ammo_box/magazine/rostokov9mm

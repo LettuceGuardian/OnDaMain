@@ -121,7 +121,8 @@
 
 	/// How many tiles we pass in a single SSprojectiles tick
 	var/speed = 1.25
-
+	///plus/minus modifier to projectile speed
+	var/speed_mod = 0
 	/// The current angle of the projectile. Initially null, so if the arg is missing from [/fire()], we can calculate it from firer and target as fallback.
 	var/angle
 	/// Angle at the moment of firing
@@ -215,11 +216,11 @@
 	/// Whether or not our projectile doubles the value of affecting armour
 	var/weak_against_armour = FALSE
 	/// This will de-increment every step. When 0, it will delete the projectile.
-	var/range = 50
+	var/range = 100
 	/// Original range upon being fired/reflected
 	var/maximum_range
 	/// Amount of original range that falls off when reflecting, so it doesn't go forever
-	var/reflect_range_decrease = 5
+	var/reflect_range_decrease = 10
 	/// If this projectile can be reflected
 	var/reflectable = FALSE
 	/// What is the multiplier vs lavaland fauna and megafauna?
@@ -932,7 +933,7 @@
 
 	// Calculates how many pixels should be moved this tick, including overrun debt from the previous tick
 	var/elapsed_time = world.time - last_projectile_move
-	var/pixels_to_move = elapsed_time * SSprojectiles.pixels_per_decisecond * speed + overrun
+	var/pixels_to_move = elapsed_time * SSprojectiles.pixels_per_decisecond * speed + speed_mod + overrun
 	overrun = 0
 
 	if (pixels_to_move > SSprojectiles.max_pixels_per_tick)

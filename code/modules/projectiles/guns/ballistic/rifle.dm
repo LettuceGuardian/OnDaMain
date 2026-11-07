@@ -9,7 +9,7 @@
 	spread = -1
 	spread_unwielded = 12
 	recoil = 4
-	wield_recoil = -3
+	wield_recoil = 1
 	wield_slowdown = 1
 	wield_delay = 1.2 SECONDS
 	bolt_wording = "bolt"

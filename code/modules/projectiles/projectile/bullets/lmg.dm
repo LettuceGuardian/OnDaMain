@@ -83,7 +83,7 @@
 	wound_falloff_tile = 0
 
 
-///6.5 Anti-Xeno, Quarad light machine gun
+///6.5 Anti-Xeno, Quarad light machine gun (On the chopping block)
 
 /obj/projectile/bullet/c65xeno
 	name = "6.5mm frangible round"

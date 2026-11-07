@@ -1,3 +1,17 @@
+///.310 Strilka (DMR)
+
+/obj/item/ammo_casing/strilka310
+	name = ".310 Strilka bullet casing"
+	desc = "A .310 Strilka bullet casing. Casing is a bit of a fib, there is no case, its just a block of red powder."
+	icon_state = "310-casing"
+	caliber = CALIBER_STRILKA310
+	projectile_type = /obj/projectile/bullet/strilka310
+
+/obj/item/ammo_casing/strilka310/Initialize(mapload)
+	. = ..()
+
+	AddElement(/datum/element/caseless)
+
 // .50 (Sniper)
 
 /obj/item/ammo_casing/p50

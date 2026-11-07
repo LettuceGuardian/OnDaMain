@@ -1,9 +1,8 @@
 /obj/projectile/bullet/shotgun_slug
 	name = "12g shotgun slug"
 	icon_state = "pellet"
-	damage = 40
-	sharpness = SHARP_POINTY
-	wound_bonus = -5
+	damage = 60
+	armour_penetration = 10
 
 /obj/projectile/bullet/shotgun_slug/executioner
 	name = "executioner slug" // admin only, can dismember limbs
@@ -43,11 +42,14 @@
 
 /obj/projectile/bullet/shotgun_beanbag
 	name = "beanbag slug"
-	icon_state = "pellet"
-	damage = 5 //10 to 5 monkestation edit
-	stamina = 55
+	icon = 'monkestation/code/modules/security/icons/paco_ammo.dmi'
+	icon_state = "rubber_bullet"
+	damage = 15
+	stamina = 65
 	wound_bonus = 20
 	sharpness = NONE
+	armour_penetration = -45
+	transform = matrix(2, 0, 0, 0, 2, 0)
 
 /obj/projectile/bullet/incendiary/shotgun
 	name = "incendiary slug"
@@ -66,14 +68,12 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot ///6 pellets
 	name = "buckshot pellet"
 	damage = 8
-	wound_bonus = 0
-	bare_wound_bonus = 5
-	wound_falloff_tile = -1.5 // low damage + additional dropoff will already curb wounding potential anything past point blank
+	wound_bonus = 13
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot ///6 pellets
 	name = "rubber shot pellet"
 	damage = 2 //monkestation edit 3 to 2
-	stamina = 10
+	stamina = 17
 	sharpness = NONE
 	embed_type = null
 	stamina_falloff_tile = 0
@@ -105,7 +105,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express ///12 pellets
 	name = "express buckshot pellet"
-	damage = 3
+	damage = 8
 	wound_bonus = 0
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express/Initialize(mapload)
@@ -282,10 +282,7 @@
 	name = "12g hunter slug"
 	damage = 20
 	range = 12
-	/// How much the damage is multiplied by when we hit a mob with the correct biotype
-	var/biotype_damage_multiplier = 5
-	/// What biotype we look for
-	var/biotype_we_look_for = MOB_BEAST
+	fauna_mod = 5
 
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))
@@ -294,18 +291,7 @@
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
-	if(!isliving(target) || (damage > initial(damage)))
-		return ..()
-	var/mob/living/target_mob = target
-	if(target_mob.mob_biotypes & biotype_we_look_for || istype(target_mob, /mob/living/simple_animal/hostile/megafauna))
-		damage *= biotype_damage_multiplier
 	return ..()
-
-/obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
-
-
 
 /obj/projectile/bullet/pellet/beeshot
 	name ="beeshot"

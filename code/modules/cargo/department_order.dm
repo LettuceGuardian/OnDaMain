@@ -262,6 +262,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 		/area/station/security/office,
 		/area/station/security/brig,
 		/area/station/security/brig/upper,
+		/area/station/security/lockers,
 	)
 	override_access = ACCESS_HOS
 	req_one_access = REGION_ACCESS_SECURITY
