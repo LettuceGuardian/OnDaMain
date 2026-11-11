@@ -4,7 +4,8 @@
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m9mm
-	recoil = 0.3
+	recoil = 1
+	wield_recoil = 0.3
 	wield_delay = 0.2 SECONDS
 	spread = -2
 	spread_unwielded = 4
@@ -75,13 +76,17 @@
 	desc = "A robust .50 AE handgun."
 	icon_state = "deagle"
 	force = 14
+	wield_delay = 0.7 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
 	can_suppress = FALSE
 	mag_display = TRUE
-	fire_sound = 'sound/items/weapons/gun/rifle/shot.ogg'
+	fire_sound = 'sound/items/weapons/gun/pistol/deagle.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/deagle_unload.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/deagle_unload.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/deagle_reload.ogg'
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold
 	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."

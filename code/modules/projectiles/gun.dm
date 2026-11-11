@@ -25,7 +25,7 @@
 
 	var/super_throw = FALSE
 	var/gun_flags = NONE
-	var/fire_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	var/fire_sound = 'sound/items/weapons/gun/pistol/candor.ogg'
 	var/vary_fire_sound = TRUE
 	var/fire_sound_volume = 50
 	var/dry_fire_sound = 'sound/items/weapons/gun/general/dry_fire.ogg'

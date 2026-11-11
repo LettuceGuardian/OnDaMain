@@ -6,6 +6,7 @@
 	icon_state = "debug"
 	w_class = WEIGHT_CLASS_NORMAL
 	recoil = 1
+	wield_recoil = 0.5
 	///sound when inserting magazine
 	var/load_sound = 'sound/items/weapons/gun/general/magazine_insert_full.ogg'
 	///sound when inserting an empty magazine
@@ -131,7 +132,7 @@
 	/// What the icon state is for the on-back guns
 	var/alt_icon_state
 	/// How long it takes to reload a magazine.
-	var/reload_time = 2 SECONDS
+	var/reload_time = 1 SECONDS
 	/// if this gun has a penalty for reloading with an ammo_box type
 	var/box_reload_penalty = TRUE
 	/// reload penalty inflicted by using an ammo box instead of an individual cartridge, if not outright exchanging the magazine
@@ -367,7 +368,10 @@
 		magazine = AM
 		if (display_message)
 			balloon_alert(user, "[magazine_wording] loaded")
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		if (magazine.ammo_count())
+			playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		else
+			playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round()
 		update_appearance()
@@ -378,26 +382,34 @@
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
 /obj/item/gun/ballistic/proc/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
-	if(bolt_type == BOLT_TYPE_OPEN)
-		chambered = null
+	if(!magazine)
+		return FALSE
+	var/obj/item/ammo_box/magazine/loaded_magazine = magazine
+	if(tac_load && reload_time && !HAS_TRAIT(user, TRAIT_INSTANT_RELOAD))
+		to_chat(user, span_notice("You start to insert the magazine into [src]!"))
+		if(!do_after(user, reload_time, src, IGNORE_USER_LOC_CHANGE))
+			to_chat(user, span_danger("You fail to insert the magazine into [src]!"))
+			return FALSE
+		if(magazine != loaded_magazine)
+			return FALSE
 	if (magazine.ammo_count())
-		playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_sound, eject_sound_volume, eject_sound_vary)
 	else
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_empty_sound, eject_sound_volume, eject_sound_vary)
 	magazine.forceMove(drop_location())
 	var/obj/item/ammo_box/magazine/old_mag = magazine
+	old_mag.update_appearance()
+	magazine = null
+	if (display_message)
+		balloon_alert(user, "[magazine_wording] unloaded")
+	update_appearance()
 	if (tac_load)
 		if (insert_magazine(user, tac_load, FALSE))
 			balloon_alert(user, "[magazine_wording] swapped")
 		else
 			to_chat(user, span_warning("You dropped the old [magazine_wording], but the new one doesn't fit. How embarassing."))
-			magazine = null
-	else
-		magazine = null
-	user.put_in_hands(old_mag)
-	old_mag.update_appearance()
-	if (display_message)
-		balloon_alert(user, "[magazine_wording] unloaded")
+	if(user)
+		user.put_in_hands(old_mag)
 	update_appearance()
 
 /obj/item/gun/ballistic/can_shoot()
@@ -412,7 +424,7 @@
 			insert_magazine(user, tool)
 		else
 			if (tac_reloads)
-				eject_magazine(user, FALSE, tool)
+				handle_magazine(user, tool)
 			else
 				balloon_alert(user, "already loaded!")
 		return
@@ -779,12 +791,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	desc = "A small-arms suppressor for maximum espionage."
 
 /obj/item/gun/ballistic/proc/handle_magazine(mob/user, obj/item/ammo_box/magazine/inserting_magazine)
-	if(magazine) // If we already have a magazine inserted, we're going to begin tactically reloading it.
-		if(reload_time && !HAS_TRAIT(user, TRAIT_INSTANT_RELOAD)) // Check if we have a reload time to tactical reloading, or if we have the instant reload trait.
-			to_chat(user, span_notice("You start to insert the magazine into [src]!"))
-			if(!do_after(user, reload_time, src, IGNORE_USER_LOC_CHANGE)) // We are allowed to move while reloading.
-				to_chat(user, span_danger("You fail to insert the magazine into [src]!"))
-				return TRUE
+	if(magazine)
 		eject_magazine(user, FALSE, inserting_magazine) // We eject the magazine then insert the new one, while putting the old one in hands.
 	else
 		insert_magazine(user, inserting_magazine) // Otherwise, just insert it.

@@ -88,6 +88,7 @@
 /obj/item/gun/ballistic/automatic/c20r/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, 0.17 SECONDS)
+	update_appearance()
 
 /obj/item/gun/ballistic/automatic/c20r/add_bayonet_point()
 	AddComponent(/datum/component/bayonet_attachable, offset_x = 26, offset_y = 12)
@@ -100,9 +101,6 @@
 /obj/item/gun/ballistic/automatic/c20r/unrestricted
 	pin = /obj/item/firing_pin
 
-/obj/item/gun/ballistic/automatic/c20r/Initialize(mapload)
-	. = ..()
-	update_appearance()
 
 /obj/item/gun/ballistic/automatic/wt550
 	name = "\improper WT-550 Autorifle"
@@ -158,7 +156,10 @@
 		magazine = AM
 		if (display_message)
 			balloon_alert(user, "[magazine_wording] loaded")
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		if (magazine.ammo_count())
+			playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		else
+			playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
 		update_appearance()
@@ -169,29 +170,32 @@
 
 ///Modify proc so it takes time to add or remove the magazine.
 /obj/item/gun/ballistic/automatic/wt550/fss/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
+	if(!magazine)
+		return FALSE
+	var/obj/item/ammo_box/magazine/loaded_magazine = magazine
 	if(!do_after(user, magazine_time, target = src))
 		balloon_alert(user, "interrupted!")
 		return FALSE
-	if(bolt_type == BOLT_TYPE_OPEN)
-		chambered = null
+	if(magazine != loaded_magazine)
+		return FALSE
 	if (magazine.ammo_count())
-		playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_sound, eject_sound_volume, eject_sound_vary)
 	else
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_empty_sound, eject_sound_volume, eject_sound_vary)
 	magazine.forceMove(drop_location())
 	var/obj/item/ammo_box/magazine/old_mag = magazine
+	old_mag.update_appearance()
+	magazine = null
+	if (display_message)
+		balloon_alert(user, "[magazine_wording] unloaded")
+	update_appearance()
 	if (tac_load)
 		if (insert_magazine(user, tac_load, FALSE))
 			balloon_alert(user, "[magazine_wording] swapped")
 		else
 			to_chat(user, span_warning("You dropped the old [magazine_wording], but the new one doesn't fit. How embarassing."))
-			magazine = null
-	else
-		magazine = null
-	user.put_in_hands(old_mag)
-	old_mag.update_appearance()
-	if (display_message)
-		balloon_alert(user, "[magazine_wording] unloaded")
+	if(user)
+		user.put_in_hands(old_mag)
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/wt550/fss/no_mag
