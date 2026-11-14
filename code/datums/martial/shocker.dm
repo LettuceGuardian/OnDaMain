@@ -39,7 +39,7 @@
 	skill_mod = 3
 
 /datum/crafting_recipe/shockerupgrade
-	name = "orilla Shocker Gloves"
+	name = "Gorilla Shocker Gloves"
 	reqs = list(
 		/obj/item/clothing/gloves/tackler/shocker = 1,
 		/obj/item/clothing/gloves/tackler/combat = 1,
