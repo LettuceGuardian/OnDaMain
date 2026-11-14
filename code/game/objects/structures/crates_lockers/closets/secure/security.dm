@@ -77,6 +77,7 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/hos(src)
+	new	/obj/item/clothing/gloves/tackler/shocker
 	new /obj/item/gps/security(src)
 	new /obj/item/bodycam_upgrade(src)
 

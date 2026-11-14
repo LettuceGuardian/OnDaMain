@@ -238,6 +238,15 @@
 		/obj/item/shield/riot/flash,
 		)
 
+/datum/voucher_set/security/primary/shocker_gloves // Paradise port, reskinned
+	name = "Shocker Gloves"
+	description = "Gloves that harness kinetic energy off your movement, turns it into electricity. Fight crime with your fists!.. because you won't be able to use much else with them on."
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "shocker"
+	set_items = list(
+		/obj/item/clothing/gloves/tackler/shocker,
+	)
+
 /datum/voucher_set/security/utility/nv_hud
 	name = "Night Vision Security HUD"
 	description = "An advanced heads-up display that provides ID data and vision in complete darkness."
