@@ -32,6 +32,7 @@
 /obj/item/clothing/gloves/tackler/shocker/upgraded
 	name = "Gorilla Shocker Gloves"
 	desc = "Energy conductive gloves, these come with hard knuckles and upgraded grip, in case shocking your target wasn't enough. Too bulky to use with guns and batons."
+	icon_state = "shocker_upgraded"
 	tackle_stam_cost = 15
 	base_knockdown = 1.25 SECONDS
 	tackle_range = 5
